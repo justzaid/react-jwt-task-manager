@@ -64,7 +64,7 @@ const App = () => {
             <>
             <Route path="/" element={<Dashboard user={user} />} />
             <Route path="/tasks" element={<TaskList tasks={tasks}/>} />
-            <Route path="/tasks/:taskId" element={<TaskDetails handleDeleteTask={handleDeleteTask}/>} />
+            <Route path="/tasks/:taskId" element={<TasksDetails handleDeleteTask={handleDeleteTask}/>} />
             <Route path="/tasks/new" element={<TaskForm handleAddTask={handleAddTask} />} />
             <Route path="/tasks/:taskId/edit" element={<TaskForm handleUpdateTask={handleUpdateTask} />}
 />
