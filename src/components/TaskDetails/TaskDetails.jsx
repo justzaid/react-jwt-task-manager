@@ -8,28 +8,35 @@ import { AuthedUserContext } from '../../App';
 
 
 const TaskDetails = (props) => {
-    const { taskId } = useParams();
-    const [task, setTask] = useState(null);
-    const user = useContext(AuthedUserContext);
+  const { taskId } = useParams();
+  const [task, setTask] = useState(null);
+  const user = useContext(AuthedUserContext);
 
-    useEffect (() => {
-      const fetchTask = async () => {
-        const taskData = await taskService.show(taskId);
-        setTask(taskData);
-       };
-      fetchTask();
-    }, [taskId]);
+  useEffect(() => {
+    const fetchTask = async () => {
+      const taskData = await taskService.show(taskId);
+      setTask(taskData);
+    };
+    fetchTask();
+  }, [taskId]);
 
-    const handleAddComment = async (commentFormData) => {
-        const newComment = await taskService.createComment(taskId, commentFormData);
-        setTask({ ...task, comments: [...task.comments, newComment] });
-      };
+  const handleAddComment = async (commentFormData) => {
+    const newComment = await taskService.createComment(taskId, commentFormData);
+    setTask({ ...task, comments: [...task.comments, newComment] });
+  };
 
-
-      if(!task) return <main>Loading...</main>;
+  const handleDeleteComment = async (commentId) => {
+    console.log('commentId:', commentId);
+    await taskService.deleteComment(hootId, commentId);
+    setHoot({
+      ...hoot,
+      comments: task.comments.filter((comment) => comment._id !== commentId),
+    });
+  };
+  if (!task) return <main>Loading...</main>;
 
   return (
-   <main>
+    <main>
       <header>
         <p>{task.category.toUpperCase()}</p>
         <h1>{task.title}</h1>
@@ -41,15 +48,15 @@ const TaskDetails = (props) => {
 
       <p>{task.text}</p>
       {task.author._id === user._id && (
-          <>
-            <Link to={`/tasks/${taskId}/edit`}>Edit</Link>
-            <button onClick={() => props.handleDeleteTask(taskId)}>Delete</button>
-          </>
-        )}
+        <>
+          <Link to={`/tasks/${taskId}/edit`}>Edit</Link>
+          <button onClick={() => props.handleDeleteTask(taskId)}>Delete</button>
+        </>
+      )}
 
       <section>
         <h2>Comments</h2>
-        <CommentForm handleAddComment={handleAddComment}/>
+        <CommentForm handleAddComment={handleAddComment} />
         {!task.comments.length && <p>There are no comments.</p>}
 
         {task.comments.map((comment) => (
@@ -59,15 +66,20 @@ const TaskDetails = (props) => {
                 {comment.author.username} posted on
                 {new Date(comment.createdAt).toLocaleDateString()}
               </p>
+              {comment.author._id === user._id && (
+                <>
+                  <button onClick={() => handleDeleteComment(comment._id)}>Delete</button>
+                </>
+              )}
             </header>
             <p>{comment.text}</p>
           </article>
         ))}
       </section>
-   </main>
+    </main>
   );
 };
- 
+
 
 
 export default TaskDetails;
