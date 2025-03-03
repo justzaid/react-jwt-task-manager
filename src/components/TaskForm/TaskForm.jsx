@@ -23,7 +23,7 @@ const TaskForm = (props) => {
   };
 
   const handleSubmit = (event) => {
-    evt.preventDefault();
+    event.preventDefault();
     if (taskId) {
       props.handleUpdateTask(taskId, formData);
     } else {
