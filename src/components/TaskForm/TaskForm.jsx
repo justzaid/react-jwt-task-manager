@@ -61,7 +61,6 @@ const TaskForm = (props) => {
           value={formData.category}
           onChange={handleChange}
         >
-          <option value="News">News</option>
           <option value="Not started">Not started</option>
           <option value="In process">In process</option>
           <option value="Done">Done</option>
