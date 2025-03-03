@@ -41,7 +41,7 @@ const TaskDetails = (props) => {
       <p>{task.text}</p>
       {task.author._id === user._id && (
           <>
-            <Link to={`/tasks${taskId}/edit`}>Edit</Link>
+            <Link to={`/tasks/${taskId}/edit`}>Edit</Link>
             <button onClick={() => props.handleDeletTask(taskId)}>Delete</button>
           </>
         )}
