@@ -5,7 +5,7 @@ import * as taskService from '../../services/taskService';
 const CommentForm = (props) => {
   const [formData, setFormData] = useState({ text: '' });
   const { taskId, commentId } = useParams();
-
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTask = async () => {
@@ -24,7 +24,7 @@ const CommentForm = (props) => {
     evt.preventDefault();
     if (taskId && commentId) {
       taskService.updateComment(taskId, commentId, formData);
-
+      navigate(`/tasks/${taskId}`);
     } else {
       props.handleAddComment(formData);
     }
