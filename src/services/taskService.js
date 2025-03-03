@@ -98,6 +98,22 @@ const deleteComment = async (hootId, commentId) => {
   }
 };
 
+const updateComment = async (taskId, commentId, commentFormData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${taskId}/comments/${commentId}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(commentFormData),
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export {
   index,
   show,
@@ -106,5 +122,5 @@ export {
   deleteTask,
   update,
   deleteComment,
-  
+  updateComment,
 };

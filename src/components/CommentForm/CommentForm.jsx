@@ -7,6 +7,14 @@ const CommentForm = (props) => {
   const { taskId, commentId } = useParams();
 
 
+  useEffect(() => {
+    const fetchTask = async () => {
+      const taskData = await taskService.show(taskId);
+      setFormData(taskData.comments.find((comment) => comment._id === commentId));
+    };
+    if (taskId && commentId) fetchTask();
+  }, [taskId, commentId]);
+
 
   const handleChange = (evt) => {
     setFormData({ ...formData, [evt.target.name]: evt.target.value });
@@ -14,9 +22,15 @@ const CommentForm = (props) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    props.handleAddComment(formData)
+    if (taskId && commentId) {
+      hootService.updateComment(taskId, commentId, formData);
+
+    } else {
+      props.handleAddComment(formData);
+    }
     setFormData({ text: '' });
   };
+
 
   return (
     <form onSubmit={handleSubmit}>

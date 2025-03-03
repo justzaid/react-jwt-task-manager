@@ -68,7 +68,7 @@ const TaskDetails = (props) => {
               </p>
               {comment.author._id === user._id && (
                 <>
-                  <Link to={`/hoots/${taskId}/comments/${comment._id}/edit`}>Edit</Link>
+                  <Link to={`/tasks/${taskId}/comments/${comment._id}/edit`}>Edit</Link>
                   <button onClick={() => handleDeleteComment(comment._id)}>Delete</button>
                 </>
               )}
