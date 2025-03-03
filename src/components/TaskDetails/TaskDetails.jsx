@@ -25,6 +25,7 @@ const TaskDetails = (props) => {
         setTask({ ...task, comments: [...task.comments, newComment] });
       };
 
+
       if(!task) return <main>Loading...</main>;
 
   return (
