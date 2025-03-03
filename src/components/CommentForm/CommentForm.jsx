@@ -23,7 +23,7 @@ const CommentForm = (props) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     if (taskId && commentId) {
-      hootService.updateComment(taskId, commentId, formData);
+      taskService.updateComment(taskId, commentId, formData);
 
     } else {
       props.handleAddComment(formData);

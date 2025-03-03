@@ -69,7 +69,7 @@ const App = () => {
               <Route path="/tasks/:taskId" element={<TaskDetails handleDeleteTask={handleDeleteTask} />} />
               <Route path="/tasks/new" element={<TaskForm handleAddTask={handleAddTask} />} />
               <Route path="/tasks/:taskId/edit" element={<TaskForm handleUpdateTask={handleUpdateTask} />} />
-
+              <Route path="/tasks/:taskId/comments/:commentId/edit" element={<CommentForm />} />
             </>
           ) : (
             // Public
