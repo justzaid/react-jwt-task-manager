@@ -54,7 +54,7 @@ const index = async () => {
     }
   };
 
-  const deleteTask = async (tasktId) => {
+  const deleteTask = async (taskId) => {
     try {
       const res = await fetch(`${BASE_URL}/${taskId}`, {
         method: 'DELETE',
