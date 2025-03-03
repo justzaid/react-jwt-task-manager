@@ -10,7 +10,7 @@ import SigninForm from './components/SigninForm/SigninForm';
 import TaskForm from './components/TaskForm/TaskForm';
 import TaskList from './components/TaskList/TaskList';
 import TaskDetails from './components/TaskDetails/TaskDetails';
-
+import CommentForm from './components/CommentForm/CommentForm';
 // Services
 import * as authService from '../src/services/authService';
 import * as taskService from './services/taskService';
@@ -27,7 +27,7 @@ const App = () => {
       const tasksData = await taskService.index();
       setTasks(tasksData)
     }
-  if(user) fetchAllTasks()
+    if (user) fetchAllTasks()
   }, [user])
 
   const handleSignout = () => {
@@ -64,12 +64,12 @@ const App = () => {
           {user ? (
             // protected
             <>
-            <Route path="/" element={<Dashboard user={user} />} />
-            <Route path="/tasks" element={<TaskList tasks={tasks}/>} />
-            <Route path="/tasks/:taskId" element={<TaskDetails handleDeleteTask={handleDeleteTask}/>} />
-            <Route path="/tasks/new" element={<TaskForm handleAddTask={handleAddTask} />} />
-            <Route path="/tasks/:taskId/edit" element={<TaskForm handleUpdateTask={handleUpdateTask} />}
-/>
+              <Route path="/" element={<Dashboard user={user} />} />
+              <Route path="/tasks" element={<TaskList tasks={tasks} />} />
+              <Route path="/tasks/:taskId" element={<TaskDetails handleDeleteTask={handleDeleteTask} />} />
+              <Route path="/tasks/new" element={<TaskForm handleAddTask={handleAddTask} />} />
+              <Route path="/tasks/:taskId/edit" element={<TaskForm handleUpdateTask={handleUpdateTask} />} />
+
             </>
           ) : (
             // Public
