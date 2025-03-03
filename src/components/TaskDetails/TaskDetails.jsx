@@ -27,9 +27,9 @@ const TaskDetails = (props) => {
 
   const handleDeleteComment = async (commentId) => {
     console.log('commentId:', commentId);
-    await taskService.deleteComment(hootId, commentId);
-    setHoot({
-      ...hoot,
+    await taskService.deleteComment(taskId, commentId);
+    setTask({
+      ...task,
       comments: task.comments.filter((comment) => comment._id !== commentId),
     });
   };
