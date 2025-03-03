@@ -20,13 +20,13 @@ const App = () => {
   const [tasks, setTasks] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchAllTasks = async () => {
-      const tasksData = await taskService.index();
-      setTasks(tasksData)
-    }
-  if(user) fetchAllTasks()
-  }, [user])
+  // useEffect(() => {
+  //   const fetchAllTasks = async () => {
+  //     const tasksData = await taskService.index();
+  //     setTasks(tasksData)
+  //   }
+  // if(user) fetchAllTasks()
+  // }, [user])
 
   const handleSignout = () => {
     authService.signout();
@@ -63,7 +63,7 @@ const App = () => {
             // protected
             <>
             <Route path="/" element={<Dashboard user={user} />} />
-            <Route path="/tasks" element={<TaskList tasks={tasks}/>} />
+            {/* <Route path="/tasks" element={<TaskList tasks={tasks}/>} /> */}
             <Route path="/tasks/:taskId" element={<TaskDetails handleDeleteTask={handleDeleteTask}/>} />
             <Route path="/tasks/new" element={<TaskForm handleAddTask={handleAddTask} />} />
             <Route path="/tasks/:taskId/edit" element={<TaskForm handleUpdateTask={handleUpdateTask} />}
