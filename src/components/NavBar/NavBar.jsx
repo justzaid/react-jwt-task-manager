@@ -11,7 +11,7 @@ const NavBar = ({ handleSignout }) => {
       <Container>
         {/* Logo */}
         <Navbar.Brand as={Link} to="/">
-          <img src="/logo.png" alt="Logo" width="50" />
+          <img src="https://static.thenounproject.com/png/354384-200.png" alt="Logo" width="50" />
         </Navbar.Brand>
 
         {/* Toggle Button for Mobile View */}
