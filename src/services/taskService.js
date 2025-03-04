@@ -84,7 +84,7 @@ const update = async (taskId, taskFormData) => {
   }
 };
 
-const deleteComment = async (hootId, commentId) => {
+const deleteComment = async (taskId, commentId) => {
   try {
     const res = await fetch(`${BASE_URL}/${taskId}/comments/${commentId}`, {
       method: 'DELETE',
@@ -92,9 +92,15 @@ const deleteComment = async (hootId, commentId) => {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     });
-    return res.json();
+
+    if (res.ok) {
+      return true; // Return true if the deletion was successful
+    } else {
+      throw new Error('Failed to delete comment');
+    }
   } catch (error) {
     console.log(error);
+    return false;
   }
 };
 

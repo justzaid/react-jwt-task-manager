@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import * as taskService from '../../services/taskService';
 import CommentForm from '../CommentForm/CommentForm';
 
@@ -12,6 +13,7 @@ const TaskDetails = (props) => {
   const { taskId } = useParams();
   const [task, setTask] = useState(null);
   const user = useContext(AuthedUserContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTask = async () => {
@@ -28,12 +30,17 @@ const TaskDetails = (props) => {
 
   const handleDeleteComment = async (commentId) => {
     console.log('commentId:', commentId);
-    await taskService.deleteComment(taskId, commentId);
-    setTask({
-      ...task,
-      comments: task.comments.filter((comment) => comment._id !== commentId),
-    });
+    const deleted = await taskService.deleteComment(taskId, commentId);
+    
+    if (deleted) {
+      setTask({
+        ...task,
+        comments: task.comments.filter((comment) => comment._id !== commentId),
+      });
+      navigate(`/tasks/${taskId}`);
+    }
   };
+  
   if (!task) return <main>Loading...</main>;
 
   return (
