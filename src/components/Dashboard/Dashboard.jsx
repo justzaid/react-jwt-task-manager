@@ -30,7 +30,7 @@ const Dashboard = () => {
         <div className={styles.actionsWrapper}>
           <div className={styles.actionCard}>
             <h3 className={styles.cardTitle}>View Tasks</h3>
-            <p className={styles.cardDescription}>Access all your current and past tasks quickly.</p>
+            <p className={styles.cardDescription}>Access all your current and past tasks quickly and easly.</p>
             <button onClick={handleNavigateToTasks} className="btn btn-primary">
               View Tasks
             </button>
