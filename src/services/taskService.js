@@ -120,6 +120,18 @@ const updateComment = async (taskId, commentId, commentFormData) => {
   }
 };
 
+const getTasks = async () => {
+  try {
+    const res = await fetch(BASE_URL, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    });
+    return res.json();
+  } catch (error) {
+    console.error('Error fetching tasks:', error);
+    throw error;
+  }
+};
+
 export {
   index,
   show,
@@ -129,8 +141,8 @@ export {
   update,
   deleteComment,
   updateComment,
+  getTasks,
 };
 
 
 
-  

@@ -23,9 +23,11 @@ const NavBar = ({ handleSignout }) => {
                 <Nav.Link as={Link} to="/">HOME</Nav.Link>
                 <Nav.Link as={Link} to="/tasks">TASKS</Nav.Link>
                 <Nav.Link as={Link} to="/tasks/new">NEW TASK</Nav.Link>
+                <Nav.Link as={Link} to="/my-lists">My Tasks</Nav.Link>
                 <Button variant="outline-danger" onClick={handleSignout} className="ms-3">
                   SIGN OUT
                 </Button>
+
               </>
             ) : (
               <>
