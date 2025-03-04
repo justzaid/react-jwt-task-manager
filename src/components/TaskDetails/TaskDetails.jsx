@@ -52,7 +52,7 @@ const TaskDetails = (props) => {
         </header>
 
         <div className={styles.descriptionWrapper}>
-          <p className={styles.description}>{task.text}</p>
+          <p className={styles.description}>Description: {task.text}</p>
         </div>
 
         {task.author._id === user._id && (
@@ -64,10 +64,12 @@ const TaskDetails = (props) => {
       </div>
 
       <section className={styles.commentsSection}>
-        <h2>Comments</h2>
+        <div className={styles.taskDetailsCard}>
+        <h2>Tasks</h2>
         <CommentForm handleAddComment={handleAddComment} />
-        {!task.comments.length && <p>No comments yet. Be the first to comment!</p>}
-
+        {!task.comments.length && <p>No Tasks yet. Create one!</p>}
+        </div>
+        <hr />
         {task.comments.map((comment) => (
           <article key={comment._id} className={styles.commentCard}>
             <header className={styles.commentHeader}>
