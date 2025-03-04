@@ -1,0 +1,136 @@
+/* General Layout */
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.taskDetailsCard {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.taskHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.category {
+    background-color: #00a0df;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.authorInfo {
+    font-size: 14px;
+    color: #888;
+    margin-top: 10px;
+}
+
+.descriptionWrapper {
+    margin-top: 20px;
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.editButton,
+.deleteButton {
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.editButton {
+    background-color: #00a0df;
+    color: white;
+    border: none;
+}
+
+.editButton:hover {
+
+    background-color: #007bb5;
+}
+
+.deleteButton {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+}
+
+.deleteButton:hover {
+    background-color: #e60000;
+}
+
+/* Comments Section */
+.commentsSection {
+    margin-top: 40px;
+}
+
+.commentCard {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 15px;
+}
+
+.commentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.commentAuthorInfo {
+    font-size: 14px;
+    color: #888;
+}
+
+.commentActions {
+    display: flex;
+    gap: 10px;
+}
+
+.commentText {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 10px;
+}
+
+.commentCard:hover {
+    background-color: #e7f4ff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}

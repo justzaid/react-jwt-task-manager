@@ -4,11 +4,11 @@ import * as taskService from '../../services/taskService';
 import  styles from '../TaskForm/TaskForm.module.css';
 
 const TaskForm = (props) => {
-    const { taskId } = useParams();
-    const [formData, setFormData] = useState({
-        title: '',
-        text: '',
-        category: 'Done',
+  const { taskId } = useParams();
+  const [formData, setFormData] = useState({
+    title: '',
+    text: '',
+    category: 'Done',
   });
 
   useEffect(() => {
@@ -30,12 +30,12 @@ const TaskForm = (props) => {
     } else {
       props.handleAddTask(formData);
     }
-  };  
+  };
 
   return (
     <main className={styles.container}>
       <form onSubmit={handleSubmit}>
-      <h1>{taskId ? 'Edit Task' : 'New Task'}</h1>
+        <h1>{taskId ? 'Edit Task' : 'New Task'}</h1>
         <label htmlFor="title-input">Title</label>
         <input
           required
