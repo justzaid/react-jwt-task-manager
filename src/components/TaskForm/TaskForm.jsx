@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import * as taskService from '../../services/taskService';
+import  styles from '../TaskForm/TaskForm.module.css';
 
 const TaskForm = (props) => {
     const { taskId } = useParams();
@@ -32,7 +33,7 @@ const TaskForm = (props) => {
   };  
 
   return (
-    <main>
+    <main className={styles.container}>
       <form onSubmit={handleSubmit}>
       <h1>{taskId ? 'Edit Task' : 'New Task'}</h1>
         <label htmlFor="title-input">Title</label>
