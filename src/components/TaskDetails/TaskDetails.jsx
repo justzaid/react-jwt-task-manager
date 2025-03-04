@@ -46,12 +46,9 @@ const TaskDetails = (props) => {
   return (
     <main>
       <header>
-        <p>{task.category.toUpperCase()}</p>
+        <p> {task.author.username} posted on {new Date(task.createdAt).toLocaleDateString()} </p>
         <h1>{task.title}</h1>
-        <p>
-          {task.author.username} posted on
-          {new Date(task.createdAt).toLocaleDateString()}
-        </p>
+        <p> {task.category.toUpperCase()} </p>
       </header>
 
       <p>{task.text}</p>
