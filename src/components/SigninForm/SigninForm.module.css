@@ -1,0 +1,124 @@
+.container {
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f7f9;
+    padding: 20px;
+}
+
+.container p {
+    margin: 0;
+    padding: 0px 0 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.container img {
+    width: 60%;
+    max-width: 450px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container section {
+    width: 50%;
+    height: auto;
+    display: flex;
+    padding: 32px 24px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.container section:first-child {
+    background-color: #fdfeff;
+}
+
+.container input {
+    margin: 7px 0px 14px 0px;
+    padding: 14px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid rgb(220, 220, 220);
+    transition: 0.3s ease-in-out;
+}
+
+.container input:focus {
+    outline: none;
+    border: 1px solid #00a0df;
+    box-shadow: 0 0 5px rgba(0, 160, 223, 0.5);
+}
+
+.container div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container label {
+    font-weight: 600;
+    margin: 7px 0px 8px;
+    color: #555;
+}
+
+.container button {
+    color: white;
+    font-weight: 600;
+    background: #00a0df;
+    margin-top: 21px;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 3px 6px rgba(0, 160, 223, 0.3);
+}
+
+.container button:hover {
+    background: #0089c3;
+    box-shadow: 0 5px 10px rgba(0, 160, 223, 0.5);
+}
+
+.container a {
+    border: none;
+    font-size: 14px;
+    background: none;
+    font-weight: 500;
+    margin-top: 14px;
+    text-align: center;
+    color: rgb(150, 150, 150);
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+.container a:hover {
+    color: #00a0df;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 912px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .container section {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .container section:first-child {
+        display: none;
+    }
+
+    .container form {
+        width: 100%;
+    }
+}
