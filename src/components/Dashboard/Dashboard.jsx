@@ -1,15 +1,50 @@
-import { AuthedUserContext } from '../../App';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate to handle programmatic navigation
+import { AuthedUserContext } from '../../App';
+import styles from './Dashboard.module.css'; // Assuming you're using a CSS module for styling
 
-const Dashboard = ({}) => {
+const Dashboard = () => {
   const user = useContext(AuthedUserContext);
+  const navigate = useNavigate(); // Hook to programmatically navigate
+
+  // Functions to handle navigation
+  const handleNavigateToTasks = () => {
+    navigate("/tasks"); // Navigate to the tasks page
+  };
+
+  const handleNavigateToNewTask = () => {
+    navigate("/tasks/new"); // Navigate to the create new task page
+  };
+
   return (
-    <main>
-      <h1>Welcome, {user.username}</h1>
-      <p>
-        This is the dashboard page where you, and only you, can see a dashboard
-        of all of your things.
-      </p>
+    <main className={styles.dashboardContainer}>
+      <div className={styles.greetingCard}>
+        <h1 className={styles.welcomeMessage}>Welcome, {user.username}!</h1>
+        <p className={styles.dashboardIntro}>
+          This is your personal dashboard. Here, you can view all your tasks, manage them, and more. Keep track of your progress and stay organized!
+        </p>
+      </div>
+
+      <section className={styles.featuresSection}>
+        <h2 className={styles.sectionTitle}>Your Quick Actions</h2>
+        <div className={styles.actionsWrapper}>
+          <div className={styles.actionCard}>
+            <h3 className={styles.cardTitle}>View Tasks</h3>
+            <p className={styles.cardDescription}>Access all your current and past tasks quickly.</p>
+            <button onClick={handleNavigateToTasks} className="btn btn-primary">
+              View Tasks
+            </button>
+          </div>
+
+          <div className={styles.actionCard}>
+            <h3 className={styles.cardTitle}>Create New Task</h3>
+            <p className={styles.cardDescription}>Easily create new tasks to manage your day-to-day activities.</p>
+            <button onClick={handleNavigateToNewTask} className="btn btn-success">
+              Create New Task
+            </button>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };
