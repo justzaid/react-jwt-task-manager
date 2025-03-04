@@ -94,3 +94,17 @@
   .deleteButton:hover {
     background-color: #c82333; /* Darker red on hover */
   }
+
+  .commentAuthorInfo {
+    color: black
+  }
+
+  .commentActions {
+    display: flex;
+    align-items: center;
+  }
+
+  .commentButtons {
+    display: flex;
+    align-items: center;
+  }
