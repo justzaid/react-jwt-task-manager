@@ -6,7 +6,7 @@ const Landing = () => {
   return (
     <main className={styles.landingContainer}>
       <div className={styles.textSection}>
-        <h1 className={styles.mainHeading}>Welcome to Our Platform</h1>
+        <h1 className={styles.mainHeading}>Welcome to Our Project manager</h1>
         <h3 className={styles.subHeading}>
           Sign up today and unlock your super secret dashboard!
         </h3>
