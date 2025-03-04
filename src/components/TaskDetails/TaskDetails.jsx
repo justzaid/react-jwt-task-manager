@@ -78,12 +78,14 @@ const TaskDetails = (props) => {
               </p>
               {comment.author._id === user._id && (
                 <div className={styles.commentActions}>
-                  <Link to={`/tasks/${taskId}/comments/${comment._id}/edit`} className={styles.editButton}>Edit</Link>
-                  <button onClick={() => handleDeleteComment(comment._id)} className={styles.deleteButton}>Delete</button>
+                  <p className={styles.commentText}>Task: {comment.text}</p>
+                  <div className={styles.commentButtons}>
+                    <Link to={`/tasks/${taskId}/comments/${comment._id}/edit`} className={styles.editButton}>Edit</Link>
+                    <button onClick={() => handleDeleteComment(comment._id)} className={styles.deleteButton}>Delete</button>
+                  </div>
                 </div>
               )}
             </header>
-            <p className={styles.commentText}>{comment.text}</p>
           </article>
         ))}
       </section>
