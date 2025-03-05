@@ -11,6 +11,8 @@ import TaskForm from './components/TaskForm/TaskForm';
 import TaskList from './components/TaskList/TaskList';
 import TaskDetails from './components/TaskDetails/TaskDetails';
 import CommentForm from './components/CommentForm/CommentForm';
+import MyListsPage from './components/MyListsPage/MyListsPage';
+
 // Services
 import * as authService from '../src/services/authService';
 import * as taskService from './services/taskService';
@@ -18,7 +20,7 @@ import * as taskService from './services/taskService';
 export const AuthedUserContext = createContext(null);
 
 const App = () => {
-  const [user, setUser] = useState(authService.getUser()); // using the method from authservice
+  const [user, setUser] = useState(authService.getUser());
   const [tasks, setTasks] = useState(null);
   const navigate = useNavigate();
 
@@ -70,6 +72,7 @@ const App = () => {
               <Route path="/tasks/new" element={<TaskForm handleAddTask={handleAddTask} />} />
               <Route path="/tasks/:taskId/edit" element={<TaskForm handleUpdateTask={handleUpdateTask} />} />
               <Route path="/tasks/:taskId/comments/:commentId/edit" element={<CommentForm />} />
+              <Route path="/my-lists" element={<MyListsPage />} />
             </>
           ) : (
             // Public
