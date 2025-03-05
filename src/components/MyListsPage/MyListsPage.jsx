@@ -45,7 +45,7 @@ const MyListsPage = () => {
       </div>
 
       <div className={styles.board}>
-        {/* Loop through categories dynamically */}
+
         {Object.keys(taskCategories).map((category) => (
           <div key={category} className={styles.column}>
             <div className={styles.columnHeader}>{category}</div>

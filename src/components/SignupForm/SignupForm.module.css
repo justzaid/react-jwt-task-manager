@@ -41,7 +41,6 @@
     border-radius: 0 10px 10px 0;
 }
 
-/* Smooth scrollbar for overflow */
 .container section:nth-child(2)::-webkit-scrollbar {
     width: 6px;
 }
@@ -113,7 +112,6 @@
     text-decoration: underline;
 }
 
-/* Responsive Design */
 @media only screen and (max-width: 912px) {
     .container {
         flex-direction: column;
@@ -134,13 +132,11 @@
     }
 }
 
-/* Adjusting layout for smaller screen heights */
 @media only screen and (max-height: 900px) {
     .container section:nth-child(2) {
         justify-content: flex-start;
     }
 }
-
 
 .formstyle {
     width: 100%;
