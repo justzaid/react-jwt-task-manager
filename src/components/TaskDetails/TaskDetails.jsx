@@ -63,32 +63,32 @@ const TaskDetails = (props) => {
         )}
       </div>
 
-      <section className={styles.commentsSection}>
-        <h2>Tasks</h2>
-        <CommentForm handleAddComment={handleAddComment} />
-        {!task.comments.length && <p>No Tasks yet. Create one!</p>}
-        <hr />
-        {task.comments.map((comment) => (
-          <article key={comment._id} className={styles.commentCard}>
-            <header className={styles.commentHeader}>
-              <p className={styles.commentAuthorInfo}>
-                {comment.author.username} posted on {new Date(comment.createdAt).toLocaleDateString()}
-              </p>
+    <section className={styles.commentsSection}>
+    <h2>Tasks</h2>
+    <CommentForm handleAddComment={handleAddComment} />
+    {!task.comments.length && <p>No Tasks yet. Create one!</p>}
+    <hr />
+    {task.comments.map((comment) => (
+      <article key={comment._id} className={styles.commentCard}>
+        <header className={styles.commentHeader}>
+          <p className={styles.commentAuthorInfo}>
+            {comment.author.username} posted on {new Date(comment.createdAt).toLocaleDateString()}
+          </p>
+          <div className={styles.commentActions}>
+            <p className={styles.commentText}>Task: {comment.text}</p>
+            <div className={styles.commentButtons}>
               {comment.author._id === user._id && (
-                <div className={styles.commentActions}>
-                  <p className={styles.commentText}>Task: {comment.text}</p>
-                  <div className={styles.commentButtons}>
-                    <>
-                    <Link to={`/tasks/${taskId}/comments/${comment._id}/edit`} className={styles.editTaskButton}>Edit</Link>
-                    </>
-                    <button onClick={() => handleDeleteComment(comment._id)} className={styles.deleteTaskButton}>Delete</button>
-                  </div>
-                </div>
+                <>
+                  <Link to={`/tasks/${taskId}/comments/${comment._id}/edit`} className={styles.editTaskButton}>Edit</Link>
+                  <button onClick={() => handleDeleteComment(comment._id)} className={styles.deleteTaskButton}>Delete</button>
+                </>
               )}
-            </header>
-          </article>
-        ))}
-      </section>
+            </div>
+          </div>
+        </header>
+      </article>
+    ))}
+  </section>
     </main>
   );
 };
