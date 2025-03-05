@@ -8,7 +8,7 @@ const Landing = () => {
       <div className={styles.textSection}>
         <h1 className={styles.mainHeading}>Welcome to Our Project manager</h1>
         <h3 className={styles.subHeading}>
-          Sign up today and unlock your super secret dashboard!
+          Sign up today and start working with your peers!
         </h3>
         <p className={styles.description}>
           Join now to organize your tasks, manage projects, and stay on top of
