@@ -94,7 +94,7 @@ const deleteComment = async (taskId, commentId) => {
     });
 
     if (res.ok) {
-      return true; // Return true if the deletion was successful
+      return true;
     } else {
       throw new Error('Failed to delete comment');
     }

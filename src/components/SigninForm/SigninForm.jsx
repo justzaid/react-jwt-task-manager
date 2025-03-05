@@ -25,7 +25,6 @@ const SigninForm = (props) => {
     e.preventDefault();
     try {
       const user = await authService.signin(formData);
-      console.log(user);
       props.setUser(user);
       navigate('/');
     } catch (err) {
@@ -37,7 +36,7 @@ const SigninForm = (props) => {
     <main className={styles.container}>
       <h1>Log In</h1>
       <p>{message}</p>
-      <form autoComplete="off" onSubmit={handleSubmit}>
+      <form className={styles.formstyle} autoComplete="off" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Username:</label>
           <input

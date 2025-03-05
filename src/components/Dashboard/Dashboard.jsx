@@ -1,19 +1,19 @@
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate to handle programmatic navigation
+import { useNavigate } from 'react-router-dom';
 import { AuthedUserContext } from '../../App';
-import styles from './Dashboard.module.css'; // Assuming you're using a CSS module for styling
+import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
   const user = useContext(AuthedUserContext);
-  const navigate = useNavigate(); // Hook to programmatically navigate
+  const navigate = useNavigate();
 
-  // Functions to handle navigation
+
   const handleNavigateToTasks = () => {
-    navigate("/tasks"); // Navigate to the tasks page
+    navigate("/tasks");
   };
 
   const handleNavigateToNewTask = () => {
-    navigate("/tasks/new"); // Navigate to the create new task page
+    navigate("/tasks/new");
   };
 
   return (

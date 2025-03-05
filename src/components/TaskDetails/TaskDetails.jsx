@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import * as taskService from '../../services/taskService';
 import CommentForm from '../CommentForm/CommentForm';
 import { AuthedUserContext } from '../../App';
-import styles from './TaskDetails.module.css'; // Assuming you create a CSS module for styling
+import styles from './TaskDetails.module.css';
 
 const TaskDetails = (props) => {
   const { taskId } = useParams();
@@ -38,13 +38,15 @@ const TaskDetails = (props) => {
 
   if (!task) return <main>Loading...</main>;
 
+  const categoryClass = `${styles.category} ${styles[task.category.replace(' ', '').toLowerCase()]}`;
+
   return (
     <main className={styles.container}>
       <div className={styles.taskDetailsCard}>
         <header className={styles.header}>
           <div className={styles.taskHeader}>
             <h1 className={styles.title}>{task.title}</h1>
-            <p className={styles.category}>{task.category.toUpperCase()}</p>
+            <p className={categoryClass}>{task.category.toUpperCase()}</p>
           </div>
           <p className={styles.authorInfo}>
             {task.author.username} posted on {new Date(task.createdAt).toLocaleDateString()}
@@ -52,7 +54,7 @@ const TaskDetails = (props) => {
         </header>
 
         <div className={styles.descriptionWrapper}>
-          <p className={styles.description}>Description: {task.text}</p>
+          <p className={styles.description}>Description: <span>{task.text}</span></p>
         </div>
 
         {task.author._id === user._id && (
@@ -63,32 +65,36 @@ const TaskDetails = (props) => {
         )}
       </div>
 
-    <section className={styles.commentsSection}>
-    <h2>Tasks</h2>
-    <CommentForm handleAddComment={handleAddComment} />
-    {!task.comments.length && <p>No Tasks yet. Create one!</p>}
-    <hr />
-    {task.comments.map((comment) => (
-      <article key={comment._id} className={styles.commentCard}>
-        <header className={styles.commentHeader}>
-          <p className={styles.commentAuthorInfo}>
-            {comment.author.username} posted on {new Date(comment.createdAt).toLocaleDateString()}
-          </p>
-          <div className={styles.commentActions}>
-            <p className={styles.commentText}>Task: {comment.text}</p>
-            <div className={styles.commentButtons}>
-              {comment.author._id === user._id && (
-                <>
-                  <Link to={`/tasks/${taskId}/comments/${comment._id}/edit`} className={styles.editTaskButton}>Edit</Link>
-                  <button onClick={() => handleDeleteComment(comment._id)} className={styles.deleteTaskButton}>Delete</button>
-                </>
-              )}
-            </div>
-          </div>
-        </header>
-      </article>
-    ))}
-  </section>
+      <section className={styles.commentsSection}>
+        <div className={styles.taskDetailsCard}>
+        <h2>Checklists</h2>
+        <hr />
+          {!task.comments.length && <p>No Checklists yet. Create one!</p>}
+          {task.comments.map((comment) => (
+            <article key={comment._id} className={styles.commentCard}>
+              <header className={styles.commentHeader}>
+                <p className={styles.commentAuthorInfo}>
+                  {comment.author.username} posted on {new Date(comment.createdAt).toLocaleDateString()}
+                </p>
+                <div className={styles.commentActions}>
+                  <p className={styles.commentText}>{comment.text}</p>
+                  <div className={styles.commentButtons}>
+                    {comment.author._id === user._id && (
+                      <>
+                        <Link to={`/tasks/${taskId}/comments/${comment._id}/edit`} className={`${styles.editTaskButton} ${styles.flipHorizontal}`}>✎</Link>
+                        <button onClick={() => handleDeleteComment(comment._id)} className={styles.deleteTaskButton}>🗑</button>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </header>
+            </article>
+          ))}
+          <hr />
+          <h2>Add a checklist</h2>
+          <CommentForm handleAddComment={handleAddComment} />
+        </div>
+      </section>
     </main>
   );
 };

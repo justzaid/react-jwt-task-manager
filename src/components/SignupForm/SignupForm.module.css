@@ -41,7 +41,6 @@
     border-radius: 0 10px 10px 0;
 }
 
-/* Smooth scrollbar for overflow */
 .container section:nth-child(2)::-webkit-scrollbar {
     width: 6px;
 }
@@ -113,7 +112,6 @@
     text-decoration: underline;
 }
 
-/* Responsive Design */
 @media only screen and (max-width: 912px) {
     .container {
         flex-direction: column;
@@ -134,9 +132,22 @@
     }
 }
 
-/* Adjusting layout for smaller screen heights */
 @media only screen and (max-height: 900px) {
     .container section:nth-child(2) {
         justify-content: flex-start;
     }
 }
+
+.formstyle {
+    width: 100%;
+    display: flex;
+    max-width: 500px;
+    border-radius: 5px;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    padding: 21px 21px 28px 21px;
+    border: 1px solid rgb(220, 220, 220);
+    box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: -1px 5px 19px -5px rgba(0, 0, 0, 0.25);
+  }
