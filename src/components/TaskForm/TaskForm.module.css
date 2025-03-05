@@ -19,7 +19,8 @@
   }
   
   .container textarea {
-    min-height: 50px;
+    max-height: 50px;
+    max-width: 50px;
   }
   
   .container label {
@@ -37,4 +38,8 @@
   input:focus, select:focus, textarea:focus {
     outline: none;
     border: 1px solid var(--primary);
+  }
+
+  p {
+    color: black;
   }

@@ -64,11 +64,9 @@ const TaskDetails = (props) => {
       </div>
 
       <section className={styles.commentsSection}>
-        <div className={styles.taskDetailsCard}>
         <h2>Tasks</h2>
         <CommentForm handleAddComment={handleAddComment} />
         {!task.comments.length && <p>No Tasks yet. Create one!</p>}
-        </div>
         <hr />
         {task.comments.map((comment) => (
           <article key={comment._id} className={styles.commentCard}>
@@ -80,8 +78,10 @@ const TaskDetails = (props) => {
                 <div className={styles.commentActions}>
                   <p className={styles.commentText}>Task: {comment.text}</p>
                   <div className={styles.commentButtons}>
-                    <Link to={`/tasks/${taskId}/comments/${comment._id}/edit`} className={styles.editButton}>Edit</Link>
-                    <button onClick={() => handleDeleteComment(comment._id)} className={styles.deleteButton}>Delete</button>
+                    <>
+                    <Link to={`/tasks/${taskId}/comments/${comment._id}/edit`} className={styles.editTaskButton}>Edit</Link>
+                    </>
+                    <button onClick={() => handleDeleteComment(comment._id)} className={styles.deleteTaskButton}>Delete</button>
                   </div>
                 </div>
               )}
