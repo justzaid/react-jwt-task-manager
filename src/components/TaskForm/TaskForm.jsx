@@ -34,9 +34,12 @@ const TaskForm = (props) => {
 
   return (
     <main className={styles.container}>
-      <form onSubmit={handleSubmit}>
+      <div className={styles.pageHeader}>
         <h1>{taskId ? 'Edit Task' : 'New Task'}</h1>
-        <label htmlFor="title-input">Title</label>
+      </div>
+
+      <form className={styles.formstyle} onSubmit={handleSubmit}>
+        <label htmlFor="title-input">Task title</label>
         <input
           required
           type="text"
@@ -45,7 +48,7 @@ const TaskForm = (props) => {
           value={formData.title}
           onChange={handleChange}
         />
-        <label htmlFor="text-input">Text</label>
+        <label htmlFor="text-input">Task description</label>
         <textarea
           required
           type="text"
@@ -54,7 +57,7 @@ const TaskForm = (props) => {
           value={formData.text}
           onChange={handleChange}
         />
-        <label htmlFor="category-input">Category</label>
+        <label htmlFor="category-input">Task category</label>
         <select
           required
           name="category"
