@@ -68,3 +68,8 @@
 .showMoreButton:hover {
     background-color: #005a8c;
 }
+
+.ownerTask {
+    background-color: #d1e7dd;
+    border: 2px solid #0f5132;
+  }
