@@ -16,9 +16,12 @@ const TaskList = (props) => {
           className={`${styles.taskCard} ${
             task.author._id === user._id ? styles.ownerTask : ""
           }`}
-          
+            
           >
-            <header className={styles.cardHeader}>
+            <header className={styles.cardHeader} 
+            
+            >
+           
               <h3>{task.title}</h3>
               <p className={styles.taskInfo}>
                 {task.author.username} posted on{' '}
