@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { AuthedUserContext } from '../../App';
 import { Link } from 'react-router-dom';
-import * as taskService from '../../services/taskService'; // Assuming you have a service to fetch tasks
+import * as taskService from '../../services/taskService';
 import styles from './MyListsPage.module.css';
 
 const MyListsPage = () => {
@@ -11,9 +11,9 @@ const MyListsPage = () => {
   useEffect(() => {
     const fetchUserTasks = async () => {
       try {
-        const allTasks = await taskService.getTasks(); // Fetch all tasks
+        const allTasks = await taskService.getTasks();
         console.log('All tasks:', allTasks);
-        const userTasks = allTasks.filter(task => task.author._id === user._id); // Filter tasks for the logged-in user
+        const userTasks = allTasks.filter(task => task.author._id === user._id);
         console.log('User tasks:', userTasks);
         setTasks(userTasks);
       } catch (error) {
@@ -27,13 +27,15 @@ const MyListsPage = () => {
   }, [user]);
 
   const taskCategories = {
-    'Not Started': [],
+    'Not started': [],
     'In process': [],
     'Done': []
   };
 
   tasks.forEach((task) => {
-    taskCategories[task.category]?.push(task);
+    if (taskCategories[task.category]) {
+      taskCategories[task.category].push(task);
+    }
   });
 
   return (
@@ -43,6 +45,7 @@ const MyListsPage = () => {
       </div>
 
       <div className={styles.board}>
+        {/* Loop through categories dynamically */}
         {Object.keys(taskCategories).map((category) => (
           <div key={category} className={styles.column}>
             <div className={styles.columnHeader}>{category}</div>
@@ -71,7 +74,7 @@ const MyListsPage = () => {
                   </div>
                 ))
               ) : (
-                <p>No tasks in this category.</p>
+                <p>No Checklists in this category.</p>
               )}
             </div>
           </div>

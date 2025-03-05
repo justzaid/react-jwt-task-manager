@@ -18,12 +18,10 @@ const TaskList = (props) => {
 
   return (
     <div className={styles.pageWrapper}>
-      {/* "Your Tasks" Header Section */}
       <div className={styles.pageHeader}>
         <h1>Team Dashboard</h1>
       </div>
 
-      {/* Task columns */}
       <div className={styles.board}>
         <div className={styles.column}>
           <div className={styles.columnHeader}>Not Started</div>
@@ -56,7 +54,11 @@ const TaskList = (props) => {
         </div>
 
         <div className={styles.column}>
-          <div className={styles.columnHeader}>In Process</div>
+          <div className={styles.columnHeader}>
+            <div className={styles.categoryHeader}>
+              In Process
+            </div>
+          </div>
           <div className={styles.taskContainer}>
             {taskCategories['In process']?.map((task) => (
               <div

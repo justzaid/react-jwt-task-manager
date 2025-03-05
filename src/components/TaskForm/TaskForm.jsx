@@ -69,7 +69,7 @@ const TaskForm = (props) => {
           <option value="In process">In process</option>
           <option value="Done">Done</option>
         </select>
-        <button type="submit">SUBMIT</button>
+        <button type="submit">submit</button>
       </form>
     </main>
   );

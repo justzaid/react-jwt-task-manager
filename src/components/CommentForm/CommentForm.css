@@ -1,0 +1,56 @@
+
+  
+  .commentForm label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .commentForm textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    margin-bottom: 20px;
+    min-height: 100px;
+    max-width: 100%;
+  }
+  
+  .commentForm button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #005f73;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .commentForm button:hover {
+    background-color: #004b5a;
+  }
+  
+  .commentForm button:focus {
+    outline: none;
+  }
+  
+  .labelcolor {
+    opacity: .5;
+  }
+
+  .pageHeader h1 {
+    background-color: #005f73;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+  }
+  

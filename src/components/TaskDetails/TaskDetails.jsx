@@ -4,17 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import * as taskService from '../../services/taskService';
 import CommentForm from '../CommentForm/CommentForm';
 import { AuthedUserContext } from '../../App';
-import {
-  MDBCard,
-  MDBCardBody,
-  MDBCardHeader,
-  MDBBtn,
-  MDBBadge,
-  MDBRow,
-  MDBCol,
-  MDBContainer,
-  MDBTypography
-} from 'mdb-react-ui-kit';
 import styles from './TaskDetails.module.css';
 
 const TaskDetails = (props) => {
@@ -49,71 +38,64 @@ const TaskDetails = (props) => {
 
   if (!task) return <main>Loading...</main>;
 
+  const categoryClass = `${styles.category} ${styles[task.category.replace(' ', '').toLowerCase()]}`;
+
   return (
-    <MDBContainer className="py-5">
-      <MDBRow className="d-flex justify-content-center align-items-center">
-        <MDBCol md="12" xl="10">
-          <MDBCard className={styles.taskCard}>
-            <MDBCardHeader className="bg-dark text-white">
-              <h5 className="mb-0">{task.title}</h5>
-              <p className="mb-0">
-                <MDBBadge color="secondary">{task.category.toUpperCase()}</MDBBadge>
-              </p>
-            </MDBCardHeader>
-            <MDBCardBody>
-              <MDBTypography tag="h6" className="text-muted mb-3">
-                Posted by {task.author.username} on {new Date(task.createdAt).toLocaleDateString()}
-              </MDBTypography>
-              <p>{task.text}</p>
+    <main className={styles.container}>
+      <div className={styles.taskDetailsCard}>
+        <header className={styles.header}>
+          <div className={styles.taskHeader}>
+            <h1 className={styles.title}>{task.title}</h1>
+            <p className={categoryClass}>{task.category.toUpperCase()}</p>
+          </div>
+          <p className={styles.authorInfo}>
+            {task.author.username} posted on {new Date(task.createdAt).toLocaleDateString()}
+          </p>
+        </header>
 
-              {task.author._id === user._id && (
-                <div className={styles.taskActions}>
-                  <Link to={`/tasks/${taskId}/edit`}>
-                    <MDBBtn color="warning" size="sm">Edit Task</MDBBtn>
-                  </Link>
-                  <MDBBtn
-                    color="danger"
-                    size="sm"
-                    onClick={() => props.handleDeleteTask(taskId)}
-                  >
-                    Delete Task
-                  </MDBBtn>
+        <div className={styles.descriptionWrapper}>
+          <p className={styles.description}>Description: <span>{task.text}</span></p>
+        </div>
+
+        {task.author._id === user._id && (
+          <div className={styles.actions}>
+            <Link to={`/tasks/${taskId}/edit`} className={styles.editButton}>Edit Task</Link>
+            <button onClick={() => props.handleDeleteTask(taskId)} className={styles.deleteButton}>Delete Task</button>
+          </div>
+        )}
+      </div>
+
+      <section className={styles.commentsSection}>
+        <div className={styles.taskDetailsCard}>
+        <h2>Checklists</h2>
+        <hr />
+          {!task.comments.length && <p>No Checklists yet. Create one!</p>}
+          {task.comments.map((comment) => (
+            <article key={comment._id} className={styles.commentCard}>
+              <header className={styles.commentHeader}>
+                <p className={styles.commentAuthorInfo}>
+                  {comment.author.username} posted on {new Date(comment.createdAt).toLocaleDateString()}
+                </p>
+                <div className={styles.commentActions}>
+                  <p className={styles.commentText}>{comment.text}</p>
+                  <div className={styles.commentButtons}>
+                    {comment.author._id === user._id && (
+                      <>
+                        <Link to={`/tasks/${taskId}/comments/${comment._id}/edit`} className={`${styles.editTaskButton} ${styles.flipHorizontal}`}>✎</Link>
+                        <button onClick={() => handleDeleteComment(comment._id)} className={styles.deleteTaskButton}>🗑</button>
+                      </>
+                    )}
+                  </div>
                 </div>
-              )}
-
-              <section className={styles.commentsSection}>
-                <MDBTypography tag="h4" className="mt-5 mb-4">Tasks</MDBTypography>
-                <CommentForm handleAddComment={handleAddComment} />
-                {!task.comments.length && <p>No Tasks yet. Add one below!</p>}
-                {task.comments.map((comment) => (
-                  <MDBCard className="mb-3" key={comment._id}>
-                    <MDBCardBody>
-                      <MDBRow className="d-flex justify-content-between">
-                        <MDBCol>
-                          <p className="font-weight-bold">{comment.author.username}</p>
-                          <p className="text-muted">{new Date(comment.createdAt).toLocaleDateString()}</p>
-                        </MDBCol>
-                        <MDBCol md="auto" className="text-end">
-                          {comment.author._id === user._id && (
-                            <div>
-                              <Link to={`/tasks/${taskId}/comments/${comment._id}/edit`}>
-                                <MDBBtn color="warning" size="sm" className="me-2">Edit</MDBBtn>
-                              </Link>
-                              <MDBBtn color="danger" size="sm" onClick={() => handleDeleteComment(comment._id)}>Delete</MDBBtn>
-                            </div>
-                          )}
-                        </MDBCol>
-                      </MDBRow>
-                      <p>{comment.text}</p>
-                    </MDBCardBody>
-                  </MDBCard>
-                ))}
-              </section>
-            </MDBCardBody>
-          </MDBCard>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
+              </header>
+            </article>
+          ))}
+          <hr />
+          <h2>Add a checklist</h2>
+          <CommentForm handleAddComment={handleAddComment} />
+        </div>
+      </section>
+    </main>
   );
 };
 
