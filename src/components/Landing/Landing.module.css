@@ -1,6 +1,6 @@
 .landingContainer {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     padding: 50px 20px;
     background-color: #f4f7fb;
@@ -44,7 +44,7 @@
 .loginButton {
     padding: 15px 25px;
     border: none;
-    border-radius: 30px;
+    border-radius: 15px;
     font-size: 1.1rem;
     cursor: pointer;
     text-decoration: none;
@@ -71,16 +71,8 @@
     background-color: #218838;
 }
 
-.imageSection {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .landingImage {
-    max-width: 100%;
+    max-width: 85%;
     height: auto;
     border-radius: 15px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
