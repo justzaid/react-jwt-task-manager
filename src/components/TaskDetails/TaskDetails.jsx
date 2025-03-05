@@ -79,7 +79,7 @@ const TaskDetails = (props) => {
                   <p className={styles.commentText}>Task: {comment.text}</p>
                   <div className={styles.commentButtons}>
                     <>
-                    <Link to={`/tasks/${taskId}/comments/${comment._id}/edit`} className={styles.editTaskButton}>Edit</Link>
+                      <Link to={`/tasks/${taskId}/comments/${comment._id}/edit`} className={styles.editTaskButton}>Edit</Link>
                     </>
                     <button onClick={() => handleDeleteComment(comment._id)} className={styles.deleteTaskButton}>Delete</button>
                   </div>

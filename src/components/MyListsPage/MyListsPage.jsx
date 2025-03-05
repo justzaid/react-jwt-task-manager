@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
-import { AuthedUserContext } from '../../App'; // Assuming you have the context
+import { AuthedUserContext } from '../../App';
 import { Link } from 'react-router-dom';
-import * as taskService from '../../services/taskService'; // Assuming you have a service to fetch tasks
+import * as taskService from '../../services/taskService';
 import styles from './MyListsPage.module.css';
 
 const MyListsPage = () => {
@@ -11,10 +11,8 @@ const MyListsPage = () => {
     useEffect(() => {
         const fetchUserTasks = async () => {
             try {
-                const allTasks = await taskService.getTasks(); // Assuming you have a function to get tasks
-                console.log('All tasks:', allTasks);
+                const allTasks = await taskService.getTasks();
                 const userTasks = allTasks.filter(task => task.author._id === user._id);
-                console.log('User tasks:', userTasks);
                 setTasks(userTasks);
             } catch (error) {
                 console.error('Error fetching tasks:', error);
