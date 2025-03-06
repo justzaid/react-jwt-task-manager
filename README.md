@@ -57,7 +57,7 @@ Check out the user stories, tasks, and planning details on Trello:
 
 ## Try It Out
 You can test the deployed version of the Task Manager here:
-[Task Manager (Live Demo)]([https://task-manager-example.vercel.app/](https://react-jwt-task-manager.vercel.app/))
+[Task Manager (Live Demo)]([https://task-manager-example.vercel.app/](https://react-jwt-task-manager.vercel.app/)])
 
 ---
 
