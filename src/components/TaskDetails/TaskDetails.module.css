@@ -1,64 +1,173 @@
-.taskCard {
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
-}
-
-.taskActions {
+.container {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.commentsSection {
-  margin-top: 40px;
+.taskDetailsCard {
+background: #ffffff;
+border-radius: 8px;
+padding: 20px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+margin-bottom: 30px;
 }
 
-.commentsSection h4 {
-  font-size: 24px;
-  font-weight: bold;
+.header {
+margin-bottom: 20px;
 }
 
-.commentActions {
-  display: flex;
-  justify-content: flex-end;
+.taskHeader {
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
-.commentButtons {
-  display: flex;
-  gap: 5px;
+.title {
+font-size: 28px;
+font-weight: bold;
+margin: 0;
 }
 
-.commentActions {
-  margin-top: 15px;
+.category {
+color: white;
+padding: 5px 15px;
+border-radius: 20px;
+font-weight: 600;
+font-size: 14px;
+max-width: fit-content;
 }
 
-.commentText {
-  font-size: 16px;
+.notstarted {
+background-color:firebrick;
 }
 
-.commentAuthorInfo {
-  font-weight: bold;
+.inprocess {
+background-color:cornflowerblue;
 }
 
-.editButton, .deleteButton {
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
+.done {
+background-color: green;
+}
+
+.authorInfo {
+font-size: 16px;
+opacity: .7;
+margin-top: 15px;
+}
+
+.descriptionWrapper {
+margin-top: 20px;
+color: black;
+margin-bottom: 20px;
+}
+
+.description {
+font-size: 18px;
 }
 
 .editButton {
-  background-color: #ffc107;
-  color: white;
-  border: none;
+margin-bottom: 5px;
+margin-right: 10px;
+padding: 10px 15px;
+font-size: 14px;
+cursor: pointer;
+text-decoration: none;
+border-radius: 5px;
+transition: all 0.3s ease;
+display: inline-block;
+}
+
+.editButton {
+background-color: #ffc107;
+color: white;
+border: none;
+}
+
+.editButton:hover {
+background-color: #eeb405;
 }
 
 .deleteButton {
-  background-color: #dc3545;
-  color: white;
-  border: none;
+padding: 10px 15px;
+font-size: 14px;
+cursor: pointer;
+border-radius: 5px;
+transition: all 0.3s ease;
+border: none;
+background-color: #dc3545;
+color: white;
+max-width: 150px;
 }
 
-.editButton:hover, .deleteButton:hover {
-  opacity: 0.8;
+.deleteButton:hover {
+background-color: #c82333;
+}
+
+.commentAuthorInfo {
+color: black;
+opacity: .5;
+}
+
+.commentActions {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-bottom: 40px;
+}
+
+.commentButtons {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.commentActions {
+display: flex;
+align-items: center;
+margin-bottom: 40px;
+}
+
+.commentButtons {
+display: flex;
+align-items: center;
+}
+
+.editTaskButton,
+.deleteTaskButton {
+padding: 10px 15px;
+font-size: 14px;
+cursor: pointer;
+border-radius: 5px;
+transition: all 0.3s ease;
+border: none;
+}
+
+.editTaskButton {
+background-color: #ffc107;
+color: white;
+margin-right: 10px;
+}
+
+.deleteTaskButton {
+background-color: #dc3545;
+color: white;
+}
+
+.deleteTaskButton:hover {
+background-color: #c82333;
+}
+
+.commentsSection h2 {
+font-size: 25px;
+}
+
+.flipHorizontal {
+  transform: scaleX(-1);
+  display: inline-block;
+}
+
+.description span {
+  opacity: .6;
 }

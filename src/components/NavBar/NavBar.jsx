@@ -1,10 +1,16 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import { AuthedUserContext } from '../../App';
 
 const NavBar = ({ handleSignout }) => {
   const user = useContext(AuthedUserContext);
+  const navigate = useNavigate();
+
+  const handleSignoutAndRedirect = () => {
+    handleSignout();
+    navigate('/');
+  };
 
   return (
     <Navbar expand="lg" bg="white" className="border-bottom shadow-sm fixed-top">
@@ -22,10 +28,9 @@ const NavBar = ({ handleSignout }) => {
                 <Nav.Link as={Link} to="/tasks">Tasks</Nav.Link>
                 <Nav.Link as={Link} to="/tasks/new">New Task</Nav.Link>
                 <Nav.Link as={Link} to="/my-lists">My Tasks</Nav.Link>
-                <Button variant="outline-danger" onClick={handleSignout} className="ms-3">
+                <Button variant="outline-danger" onClick={handleSignoutAndRedirect} className="ms-3">
                   Sign out
                 </Button>
-
               </>
             ) : (
               <>

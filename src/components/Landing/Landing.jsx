@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Landing.module.css'; // Assuming you're using CSS modules
+import styles from './Landing.module.css';
 
 const Landing = () => {
   return (
@@ -15,12 +15,11 @@ const Landing = () => {
           your goals with ease.
         </p>
         <div className={styles.ctaButtons}>
-          {/* Sign In Button */}
+
           <Link to="/signin">
             <button className={styles.signupButton}>Sign In</button>
           </Link>
 
-          {/* Sign Up Button */}
           <Link to="/signup">
             <button className={styles.loginButton}>Sign Up</button>
           </Link>

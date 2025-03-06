@@ -41,7 +41,7 @@ const SignupForm = (props) => {
     <main className={styles.container}>
       <h1>Sign Up</h1>
       <p>{message}</p>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.formstyle} onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Username:</label>
           <input
