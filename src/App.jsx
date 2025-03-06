@@ -12,9 +12,11 @@ import TaskList from './components/TaskList/TaskList';
 import TaskDetails from './components/TaskDetails/TaskDetails';
 import CommentForm from './components/CommentForm/CommentForm';
 import MyListsPage from './components/MyListsPage/MyListsPage';
+import UsersList from './components/UsersList/UsersList';
+import UserTasks from './components/UserTasks/UserTasks';
 
 // Services
-import * as authService from '../src/services/authService';
+import * as authService from './services/authService';
 import * as taskService from './services/taskService';
 
 export const AuthedUserContext = createContext(null);
@@ -27,10 +29,10 @@ const App = () => {
   useEffect(() => {
     const fetchAllTasks = async () => {
       const tasksData = await taskService.index();
-      setTasks(tasksData)
-    }
-    if (user) fetchAllTasks()
-  }, [user])
+      setTasks(tasksData);
+    };
+    if (user) fetchAllTasks();
+  }, [user]);
 
   const handleSignout = () => {
     authService.signout();
@@ -39,16 +41,14 @@ const App = () => {
 
   const handleAddTask = async (taskFormData) => {
     const newTask = await taskService.create(taskFormData);
-    const newTaskList = [newTask, ...tasks]
+    const newTaskList = [newTask, ...tasks];
     setTasks(newTaskList);
     navigate('/tasks');
   };
 
   const handleUpdateTask = async (taskId, taskFormData) => {
     const updatedTask = await taskService.update(taskId, taskFormData);
-
     setTasks(tasks.map((task) => (taskId === task._id ? updatedTask : task)));
-
     navigate(`/tasks/${taskId}`);
   };
 
@@ -73,6 +73,8 @@ const App = () => {
               <Route path="/tasks/:taskId/edit" element={<TaskForm handleUpdateTask={handleUpdateTask} />} />
               <Route path="/tasks/:taskId/comments/:commentId/edit" element={<CommentForm />} />
               <Route path="/my-lists" element={<MyListsPage />} />
+              <Route path="/users" element={<UsersList />} />
+              <Route path="/users/:userId/tasks" element={<UserTasks />} />
             </>
           ) : (
             // Public

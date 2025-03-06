@@ -28,6 +28,7 @@ const NavBar = ({ handleSignout }) => {
                 <Nav.Link as={Link} to="/tasks">Tasks</Nav.Link>
                 <Nav.Link as={Link} to="/tasks/new">New Task</Nav.Link>
                 <Nav.Link as={Link} to="/my-lists">My Tasks</Nav.Link>
+                <Nav.Link as={Link} to="/users">Users</Nav.Link>
                 <Button variant="outline-danger" onClick={handleSignoutAndRedirect} className="ms-3">
                   Sign out
                 </Button>

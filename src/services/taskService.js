@@ -1,5 +1,5 @@
 const BASE_URL = `${import.meta.env.VITE_EXPRESS_BACKEND_URL}/tasks`;
-
+const BASE_USER_URL = `${import.meta.env.VITE_EXPRESS_BACKEND_URL}/users`;
 const index = async () => {
   try {
     const res = await fetch(BASE_URL, {
@@ -132,6 +132,19 @@ const getTasks = async () => {
   }
 };
 
+
+
+const getAllUsers = async () => {
+  try {
+    const res = await fetch(BASE_USER_URL, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    });
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export {
   index,
   show,
@@ -142,6 +155,7 @@ export {
   deleteComment,
   updateComment,
   getTasks,
+  getAllUsers,
 };
 
 

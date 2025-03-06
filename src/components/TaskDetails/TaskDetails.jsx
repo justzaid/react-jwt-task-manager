@@ -53,14 +53,8 @@ const TaskDetails = (props) => {
           </p>
         </header>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <div className={styles.descriptionWrapper}>
-          <p className={styles.description}>Description: {task.text}</p>
-=======
         <div className={styles.descriptionWrapper}>
           <p className={styles.description}>Description: <span>{task.text}</span></p>
->>>>>>> aacd2b0eb4d678e8aac48bd47c2bce32edd7edbd
         </div>
 
         {task.author._id === user._id && (
@@ -72,87 +66,9 @@ const TaskDetails = (props) => {
       </div>
 
       <section className={styles.commentsSection}>
-<<<<<<< HEAD
-        <h2>Comments</h2>
-        <CommentForm handleAddComment={handleAddComment} />
-        {!task.comments.length && <p>No comments yet. Create one!</p>}
-        <hr />
-        {task.comments.map((comment) => (
-          <article key={comment._id} className={styles.commentCard}>
-            <header className={styles.commentHeader}>
-              <p className={styles.commentAuthorInfo}>
-                {comment.author.username} posted on {new Date(comment.createdAt).toLocaleDateString()}
-              </p>
-            </header>
-            <div className={styles.commentActions}>
-              <p className={styles.commentText}>Comment: {comment.text}</p>
-              <div className={styles.commentButtons}>
-                {comment.author._id === user._id && (
-                  <>
-                    <Link to={`/tasks/${taskId}/comments/${comment._id}/edit`} className={styles.editTaskButton}>Edit</Link>
-                    <button onClick={() => handleDeleteComment(comment._id)} className={styles.deleteTaskButton}>Delete</button>
-                  </>
-                )}
-              </div>
-            </div>
-          </article>
-        ))}
-      </section>
-    </main>
-=======
-              {task.author._id === user._id && (
-                <div className={styles.taskActions}>
-                  <Link to={`/tasks/${taskId}/edit`}>
-                    <MDBBtn color="warning" size="sm">Edit Task</MDBBtn>
-                  </Link>
-                  <MDBBtn
-                    color="danger"
-                    size="sm"
-                    onClick={() => props.handleDeleteTask(taskId)}
-                  >
-                    Delete Task
-                  </MDBBtn>
-                </div>
-              )}
-
-              <section className={styles.commentsSection}>
-                <MDBTypography tag="h4" className="mt-5 mb-4">Tasks</MDBTypography>
-                <CommentForm handleAddComment={handleAddComment} />
-                {!task.comments.length && <p>No Tasks yet. Add one below!</p>}
-                {task.comments.map((comment) => (
-                  <MDBCard className="mb-3" key={comment._id}>
-                    <MDBCardBody>
-                      <MDBRow className="d-flex justify-content-between">
-                        <MDBCol>
-                          <p className="font-weight-bold">{comment.author.username}</p>
-                          <p className="text-muted">{new Date(comment.createdAt).toLocaleDateString()}</p>
-                        </MDBCol>
-                        <MDBCol md="auto" className="text-end">
-                          {comment.author._id === user._id && (
-                            <div>
-                              <Link to={`/tasks/${taskId}/comments/${comment._id}/edit`}>
-                                <MDBBtn color="warning" size="sm" className="me-2">Edit</MDBBtn>
-                              </Link>
-                              <MDBBtn color="danger" size="sm" onClick={() => handleDeleteComment(comment._id)}>Delete</MDBBtn>
-                            </div>
-                          )}
-                        </MDBCol>
-                      </MDBRow>
-                      <p>{comment.text}</p>
-                    </MDBCardBody>
-                  </MDBCard>
-                ))}
-              </section>
-            </MDBCardBody>
-          </MDBCard>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
->>>>>>> c7d7198cbbf560ea7a0a0e636fc2ec645f01c071
-=======
         <div className={styles.taskDetailsCard}>
-        <h2>Checklists</h2>
-        <hr />
+          <h2>Checklists</h2>
+          <hr />
           {!task.comments.length && <p>No Checklists yet. Create one!</p>}
           {task.comments.map((comment) => (
             <article key={comment._id} className={styles.commentCard}>
@@ -180,7 +96,6 @@ const TaskDetails = (props) => {
         </div>
       </section>
     </main>
->>>>>>> aacd2b0eb4d678e8aac48bd47c2bce32edd7edbd
   );
 };
 
