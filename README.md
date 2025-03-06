@@ -22,14 +22,13 @@ Task Manager is a simple yet efficient project designed to help users manage the
 ![Home Page](https://github.com/user-attachments/assets/d4ccdc6e-e90b-47a4-87d1-f204dd3dcbaa)
 
 ### Add Task Page
-![Add Task Page](https://github.com/user-attachments/assets/f8827cb4-28f2-4e91-a336-375e7728310f)
+![Add Task Page](https://github.com/user-attachments/assets/d2991c93-57da-4d37-9bc1-7192104efd5f)
 
 ### Task List
-![Task List](https://github.com/user-attachments/assets/27e0be6c-2609-4a9e-947c-ce36a077de8e)
+![Task List](https://github.com/user-attachments/assets/d7446a2f-06ae-465a-a43d-839c4f20cf62)
 
 ### Show Task Page
-![Show Task Page](https://github.com/user-attachments/assets/7ba5b421-9ed3-42be-8de7-f30729701df2)
-
+![Show Task Page](https://github.com/user-attachments/assets/f7f86500-aedf-4c80-8a19-1e9202158051)
 ---
 
 ## Technologies Used
