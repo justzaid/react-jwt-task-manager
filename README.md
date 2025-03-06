@@ -2,7 +2,6 @@
 
 Task Manager is a simple yet efficient project designed to help users manage their tasks effectively. It provides full CRUD (Create, Read, Update, Delete) functionality, allowing users to add, edit, and delete tasks with ease. The application is built with React, Vite, Node.js, and Express.js for fast performance and a smooth user experience.
 
----
 
 ## Features
 - **Interactive Dashboard** – A clean and user-friendly interface.
@@ -12,15 +11,10 @@ Task Manager is a simple yet efficient project designed to help users manage the
 - **User Authentication** – Users can create accounts and log in to manage personal tasks.
 
 
----
-
 ## Feature Plans
-- **Task Categories** (Upcoming) – Group tasks by categories like work, personal, etc.
-- **Priority System** (Upcoming) – Assign priority levels to tasks (high, medium, low).
-- **Task Sharing** (Upcoming) – Share tasks with others for collaboration.
-- **Export Tasks** (Upcoming) – Export tasks to CSV or PDF for printing or offline use.
-
----
+- **Task Organization** – Group tasks by categories like not started, in process, or completed.
+- **Task Sharing** – Share tasks with registered users for collaboration.
+- **History tracking** – Gain insights into when tasks were created and when checklists have been added.
 
 ## Screenshots
 
@@ -47,24 +41,29 @@ Task Manager is a simple yet efficient project designed to help users manage the
 - **CSS & Tailwind CSS** – Styling for a modern and responsive design.
 - **LocalStorage** – Stores task data for persistence.
 
----
 
 ## Project Planning
 Check out the user stories, tasks, and planning details on Trello:
 [Trello Board](https://trello.com/b/y6Cx5oZQ/project-3-crud-task-management-tool)
 
----
 
 ## Try It Out
 You can test the deployed version of the Task Manager here:
 [Task Manager (Live Demo)](https://react-jwt-task-manager.vercel.app/)
 
----
+## Attributions
+
+Bootstrap inspiation - [MDB Boostsrap](https://mdbootstrap.com/)
+
+## Future goals
+- **Draggable content** – Create drag and dorp functionality to seamlessly move task cards between categories.
+- **Image uploads** – Upload images to add more details to each created task.
+- **Task labeling** – Allow users to label tasks to mark them based on importance.
+
 
 ## Authors
-**Mohammed**  
+**Mohammed Swar**  
 **Zaid Sarhan**  
 **Salma Mohammed**
-Feel free to contribute by submitting issues or pull requests to improve the project!
 
----
+Feel free to contribute by submitting issues or pull requests to improve the project!
