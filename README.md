@@ -19,7 +19,7 @@ Task Manager is a simple yet efficient project designed to help users manage the
 ## Screenshots
 
 ### Home Page
-![Home Page](https://github.com/user-attachments/assets/d4ccdc6e-e90b-47a4-87d1-f204dd3dcbaa)
+![Home Page](https://github.com/user-attachments/assets/f132d275-09db-493d-b523-be66073f35a9)
 
 ### Add Task Page
 ![Add Task Page](https://github.com/user-attachments/assets/d2991c93-57da-4d37-9bc1-7192104efd5f)
